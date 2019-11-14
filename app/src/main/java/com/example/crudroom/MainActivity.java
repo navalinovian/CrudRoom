@@ -19,14 +19,14 @@ public class MainActivity extends AppCompatActivity {
         btCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(CreateActivity.getActIntent(MainActivity.this));
+                startActivity(RoomCreateActivity.getActIntent(MainActivity.this));
             }
         });
 
         btView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(ReadActivity.getActIntent(MainActivity.this));
+                startActivity(RoomReadActivity.getActIntent(MainActivity.this));
             }
         });
     }

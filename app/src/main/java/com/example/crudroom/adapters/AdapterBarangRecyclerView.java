@@ -13,12 +13,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import java.util.ArrayList;
 import com.example.crudroom.R;
-import com.example.crudroom.CreateActivity;
-import com.example.crudroom.ReadActivity;
+import com.example.crudroom.RoomCreateActivity;
+import com.example.crudroom.RoomReadActivity;
 import com.example.crudroom.AppDatabase;
 import com.example.crudroom.model.Barang;
 
-public class AdapterBarangRecyclerView extends RecyclerView.Adapter<AdapterBarangRecyclerView.ViewHolder> {
+public class AdapterBarangRecyclerView extends
+        RecyclerView.Adapter<AdapterBarangRecyclerView.ViewHolder> {
     private ArrayList<Barang> daftarBarang;
     private Context context;
     private AppDatabase db;
@@ -30,7 +31,8 @@ public class AdapterBarangRecyclerView extends RecyclerView.Adapter<AdapterBaran
         daftarBarang = barangs;
         context = ctx;
         db = Room.databaseBuilder(context.getApplicationContext(),
-                AppDatabase.class, "barangdb").allowMainThreadQueries().build();
+                AppDatabase.class,
+                "barangdb").allowMainThreadQueries().build();
     }
     class ViewHolder extends RecyclerView.ViewHolder {
         /**
@@ -73,7 +75,7 @@ public class AdapterBarangRecyclerView extends RecyclerView.Adapter<AdapterBaran
                 Barang barang =
                         db.barangDAO().selectBarangDetail(daftarBarang.get(position).getBarangId())
                         ;
-                context.startActivity(ReadActivity.getActIntent((Activity)
+                context.startActivity(RoomReadActivity.getActIntent((Activity)
                         context).putExtra("data", barang));
             }
         });
@@ -93,7 +95,7 @@ public class AdapterBarangRecyclerView extends RecyclerView.Adapter<AdapterBaran
                 Button delButton =
                         dialog.findViewById(R.id.bt_delete_data);
 //apabila tombol edit diklik
-        editButton.setOnClickListener(
+editButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -101,7 +103,7 @@ public class AdapterBarangRecyclerView extends RecyclerView.Adapter<AdapterBaran
                         onEditBarang(position);
                     }
                 }
-         );
+);
 //apabila tombol delete diklik
                 delButton.setOnClickListener(
                         new View.OnClickListener() {
@@ -124,7 +126,7 @@ public class AdapterBarangRecyclerView extends RecyclerView.Adapter<AdapterBaran
         notifyItemRangeRemoved(position, daftarBarang.size());
     }
     private void onEditBarang(int position){
-        context.startActivity(CreateActivity.getActIntent((Activity)
+        context.startActivity(RoomCreateActivity.getActIntent((Activity)
                 context).putExtra("data", daftarBarang.get(position)));
     }
     @Override

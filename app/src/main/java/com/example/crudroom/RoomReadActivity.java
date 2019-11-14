@@ -16,7 +16,7 @@ import com.example.crudroom.model.Barang;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class ReadActivity extends AppCompatActivity {
+public class RoomReadActivity extends AppCompatActivity {
 
     private RecyclerView rvView;
     private RecyclerView.Adapter adapter;
@@ -61,6 +61,6 @@ public class ReadActivity extends AppCompatActivity {
     }
     public static Intent getActIntent(Activity activity) {
 // kode untuk pengambilan Intent
-        return new Intent(activity, ReadActivity.class);
+        return new Intent(activity, RoomReadActivity.class);
     }
 }

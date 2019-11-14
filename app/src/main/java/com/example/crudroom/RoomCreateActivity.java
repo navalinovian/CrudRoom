@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.example.crudroom.model.Barang;
 
-public class CreateActivity extends AppCompatActivity {
+public class RoomCreateActivity extends AppCompatActivity {
 
     private AppDatabase db;
     @Override
@@ -67,7 +67,7 @@ public class CreateActivity extends AppCompatActivity {
             }
             @Override
             protected void onPostExecute(Long status) {
-                Toast.makeText(CreateActivity.this, "status row "+status, Toast.LENGTH_SHORT).show();
+                Toast.makeText(RoomCreateActivity.this, "status row "+status, Toast.LENGTH_SHORT).show();
             }
         }.execute();
     }
@@ -80,11 +80,11 @@ public class CreateActivity extends AppCompatActivity {
             }
             @Override
             protected void onPostExecute(Long status) {
-                Toast.makeText(CreateActivity.this, "status row "+status, Toast.LENGTH_SHORT).show();
+                Toast.makeText(RoomCreateActivity.this, "status row "+status, Toast.LENGTH_SHORT).show();
             }
         }.execute();
     }public static Intent getActIntent(Activity activity) {
 // kode untuk pengambilan Intent
-        return new Intent(activity, CreateActivity.class);
+        return new Intent(activity, RoomCreateActivity.class);
     }
 }
